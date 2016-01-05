@@ -1,0 +1,712 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D8C92EE1C342014006B75DF /* ObservableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D8C92ED1C342014006B75DF /* ObservableArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D8C92F51C342015006B75DF /* ObservableArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C92EB1C342014006B75DF /* ObservableArray.framework */; };
+		8D8C92FA1C342015006B75DF /* ObservableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C92F91C342015006B75DF /* ObservableArrayTests.swift */; };
+		8D8C93071C34233F006B75DF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C93041C34233F006B75DF /* RxSwift.framework */; };
+		8D8C93091C34235A006B75DF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C93081C34235A006B75DF /* RxSwift.framework */; };
+		8D8C930D1C3423E1006B75DF /* ObservableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C930C1C3423E1006B75DF /* ObservableArray.swift */; };
+		8D8C930E1C3423E1006B75DF /* ObservableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C930C1C3423E1006B75DF /* ObservableArray.swift */; };
+		8D8C931A1C3426EE006B75DF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C93081C34235A006B75DF /* RxSwift.framework */; };
+		8D8C93241C3428DF006B75DF /* ObservableArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C92CC1C341EE6006B75DF /* ObservableArray.framework */; };
+		8D8C932A1C342907006B75DF /* ObservableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C92F91C342015006B75DF /* ObservableArrayTests.swift */; };
+		8D8C932B1C34292A006B75DF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C93041C34233F006B75DF /* RxSwift.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8D8C92F61C342015006B75DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D8C92C31C341EE6006B75DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D8C92EA1C342014006B75DF;
+			remoteInfo = ObservableArray;
+		};
+		8D8C93251C3428DF006B75DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D8C92C31C341EE6006B75DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D8C92CB1C341EE6006B75DF;
+			remoteInfo = "ObservableArray-Mac";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8D8C92CC1C341EE6006B75DF /* ObservableArray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObservableArray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D8C92EB1C342014006B75DF /* ObservableArray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObservableArray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D8C92ED1C342014006B75DF /* ObservableArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObservableArray.h; sourceTree = "<group>"; };
+		8D8C92EF1C342014006B75DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D8C92F41C342014006B75DF /* ObservableArray-iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObservableArray-iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D8C92F91C342015006B75DF /* ObservableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableArrayTests.swift; sourceTree = "<group>"; };
+		8D8C92FB1C342015006B75DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D8C93041C34233F006B75DF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
+		8D8C93081C34235A006B75DF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		8D8C930C1C3423E1006B75DF /* ObservableArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableArray.swift; sourceTree = "<group>"; };
+		8D8C931F1C3428DF006B75DF /* ObservableArray-Mac-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObservableArray-Mac-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D8C92C81C341EE6006B75DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D8C93071C34233F006B75DF /* RxSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D8C92E71C342014006B75DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D8C93091C34235A006B75DF /* RxSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D8C92F11C342014006B75DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D8C92F51C342015006B75DF /* ObservableArray.framework in Frameworks */,
+				8D8C931A1C3426EE006B75DF /* RxSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D8C931C1C3428DF006B75DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D8C93241C3428DF006B75DF /* ObservableArray.framework in Frameworks */,
+				8D8C932B1C34292A006B75DF /* RxSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8D8C92C21C341EE6006B75DF = {
+			isa = PBXGroup;
+			children = (
+				8D8C92EC1C342014006B75DF /* ObservableArray */,
+				8D8C92F81C342015006B75DF /* ObservableArrayTests */,
+				8D8C930B1C3423C5006B75DF /* Frameworks */,
+				8D8C92CD1C341EE6006B75DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8D8C92CD1C341EE6006B75DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D8C92CC1C341EE6006B75DF /* ObservableArray.framework */,
+				8D8C92EB1C342014006B75DF /* ObservableArray.framework */,
+				8D8C92F41C342014006B75DF /* ObservableArray-iOS-Tests.xctest */,
+				8D8C931F1C3428DF006B75DF /* ObservableArray-Mac-Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8D8C92EC1C342014006B75DF /* ObservableArray */ = {
+			isa = PBXGroup;
+			children = (
+				8D8C92ED1C342014006B75DF /* ObservableArray.h */,
+				8D8C92EF1C342014006B75DF /* Info.plist */,
+				8D8C930C1C3423E1006B75DF /* ObservableArray.swift */,
+			);
+			path = ObservableArray;
+			sourceTree = "<group>";
+		};
+		8D8C92F81C342015006B75DF /* ObservableArrayTests */ = {
+			isa = PBXGroup;
+			children = (
+				8D8C92F91C342015006B75DF /* ObservableArrayTests.swift */,
+				8D8C92FB1C342015006B75DF /* Info.plist */,
+			);
+			path = ObservableArrayTests;
+			sourceTree = "<group>";
+		};
+		8D8C930B1C3423C5006B75DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D8C93041C34233F006B75DF /* RxSwift.framework */,
+				8D8C93081C34235A006B75DF /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8D8C92C91C341EE6006B75DF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D8C92E81C342014006B75DF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D8C92EE1C342014006B75DF /* ObservableArray.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8D8C92CB1C341EE6006B75DF /* ObservableArray-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D8C92E01C341EE6006B75DF /* Build configuration list for PBXNativeTarget "ObservableArray-Mac" */;
+			buildPhases = (
+				8D8C92C71C341EE6006B75DF /* Sources */,
+				8D8C92C81C341EE6006B75DF /* Frameworks */,
+				8D8C92C91C341EE6006B75DF /* Headers */,
+				8D8C92CA1C341EE6006B75DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ObservableArray-Mac";
+			productName = "ObservableArray-RxSwift";
+			productReference = 8D8C92CC1C341EE6006B75DF /* ObservableArray.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8D8C92EA1C342014006B75DF /* ObservableArray-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D8C92FC1C342015006B75DF /* Build configuration list for PBXNativeTarget "ObservableArray-iOS" */;
+			buildPhases = (
+				8D8C92E61C342014006B75DF /* Sources */,
+				8D8C92E71C342014006B75DF /* Frameworks */,
+				8D8C92E81C342014006B75DF /* Headers */,
+				8D8C92E91C342014006B75DF /* Resources */,
+				8D8C930A1C342370006B75DF /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ObservableArray-iOS";
+			productName = ObservableArray;
+			productReference = 8D8C92EB1C342014006B75DF /* ObservableArray.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8D8C92F31C342014006B75DF /* ObservableArray-iOS-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D8C92FF1C342015006B75DF /* Build configuration list for PBXNativeTarget "ObservableArray-iOS-Tests" */;
+			buildPhases = (
+				8D8C92F01C342014006B75DF /* Sources */,
+				8D8C92F11C342014006B75DF /* Frameworks */,
+				8D8C92F21C342014006B75DF /* Resources */,
+				8D8C93181C34269F006B75DF /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8D8C92F71C342015006B75DF /* PBXTargetDependency */,
+			);
+			name = "ObservableArray-iOS-Tests";
+			productName = ObservableArrayTests;
+			productReference = 8D8C92F41C342014006B75DF /* ObservableArray-iOS-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8D8C931E1C3428DF006B75DF /* ObservableArray-Mac-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D8C93271C3428DF006B75DF /* Build configuration list for PBXNativeTarget "ObservableArray-Mac-Tests" */;
+			buildPhases = (
+				8D8C931B1C3428DF006B75DF /* Sources */,
+				8D8C931C1C3428DF006B75DF /* Frameworks */,
+				8D8C931D1C3428DF006B75DF /* Resources */,
+				8D8C932C1C342930006B75DF /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8D8C93261C3428DF006B75DF /* PBXTargetDependency */,
+			);
+			name = "ObservableArray-Mac-Tests";
+			productName = "ObservableArray-Mac-Tests2";
+			productReference = 8D8C931F1C3428DF006B75DF /* ObservableArray-Mac-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8D8C92C31C341EE6006B75DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Safx Developers";
+				TargetAttributes = {
+					8D8C92CB1C341EE6006B75DF = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					8D8C92EA1C342014006B75DF = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					8D8C92F31C342014006B75DF = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					8D8C931E1C3428DF006B75DF = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 8D8C92C61C341EE6006B75DF /* Build configuration list for PBXProject "ObservableArray-RxSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8D8C92C21C341EE6006B75DF;
+			productRefGroup = 8D8C92CD1C341EE6006B75DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D8C92CB1C341EE6006B75DF /* ObservableArray-Mac */,
+				8D8C92EA1C342014006B75DF /* ObservableArray-iOS */,
+				8D8C931E1C3428DF006B75DF /* ObservableArray-Mac-Tests */,
+				8D8C92F31C342014006B75DF /* ObservableArray-iOS-Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D8C92CA1C341EE6006B75DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D8C92E91C342014006B75DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D8C92F21C342014006B75DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D8C931D1C3428DF006B75DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8D8C930A1C342370006B75DF /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		8D8C93181C34269F006B75DF /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		8D8C932C1C342930006B75DF /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D8C92C71C341EE6006B75DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D8C930D1C3423E1006B75DF /* ObservableArray.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D8C92E61C342014006B75DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D8C930E1C3423E1006B75DF /* ObservableArray.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D8C92F01C342014006B75DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D8C92FA1C342015006B75DF /* ObservableArrayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D8C931B1C3428DF006B75DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D8C932A1C342907006B75DF /* ObservableArrayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8D8C92F71C342015006B75DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D8C92EA1C342014006B75DF /* ObservableArray-iOS */;
+			targetProxy = 8D8C92F61C342015006B75DF /* PBXContainerItemProxy */;
+		};
+		8D8C93261C3428DF006B75DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D8C92CB1C341EE6006B75DF /* ObservableArray-Mac */;
+			targetProxy = 8D8C93251C3428DF006B75DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8D8C92DE1C341EE6006B75DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8D8C92DF1C341EE6006B75DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8D8C92E11C341EE6006B75DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ObservableArray/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray-RxSwift";
+				PRODUCT_NAME = ObservableArray;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8D8C92E21C341EE6006B75DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ObservableArray/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray-RxSwift";
+				PRODUCT_NAME = ObservableArray;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8D8C92FD1C342015006B75DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ObservableArray/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray";
+				PRODUCT_NAME = ObservableArray;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8D8C92FE1C342015006B75DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ObservableArray/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray";
+				PRODUCT_NAME = ObservableArray;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8D8C93001C342015006B75DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ObservableArrayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArrayTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8D8C93011C342015006B75DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = ObservableArrayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArrayTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8D8C93281C3428DF006B75DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = ObservableArray/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray-Mac-Tests2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8D8C93291C3428DF006B75DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = ObservableArray/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray-Mac-Tests2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8D8C92C61C341EE6006B75DF /* Build configuration list for PBXProject "ObservableArray-RxSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D8C92DE1C341EE6006B75DF /* Debug */,
+				8D8C92DF1C341EE6006B75DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D8C92E01C341EE6006B75DF /* Build configuration list for PBXNativeTarget "ObservableArray-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D8C92E11C341EE6006B75DF /* Debug */,
+				8D8C92E21C341EE6006B75DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D8C92FC1C342015006B75DF /* Build configuration list for PBXNativeTarget "ObservableArray-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D8C92FD1C342015006B75DF /* Debug */,
+				8D8C92FE1C342015006B75DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D8C92FF1C342015006B75DF /* Build configuration list for PBXNativeTarget "ObservableArray-iOS-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D8C93001C342015006B75DF /* Debug */,
+				8D8C93011C342015006B75DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D8C93271C3428DF006B75DF /* Build configuration list for PBXNativeTarget "ObservableArray-Mac-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D8C93281C3428DF006B75DF /* Debug */,
+				8D8C93291C3428DF006B75DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8D8C92C31C341EE6006B75DF /* Project object */;
+}
