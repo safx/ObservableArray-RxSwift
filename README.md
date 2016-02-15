@@ -16,7 +16,7 @@ ObservableArray is an array that can emit messages of elements and diffs on it's
 
 ```swift
 func rx_elements() -> Observable<[Element]>
-func rx_events() -> Observable<EventType>
+func rx_events() -> Observable<ArrayChangeEvent>
 ```
 
 ### `rx_elements`
@@ -32,7 +32,7 @@ array[2] = "milk"
 array.removeAll()
 ```
 
-The output of the code is as follows:
+This will print:
 
     ["foo", "bar", "buzz", "coffee"]
     ["foo", "bar", "milk", "coffee"]
@@ -64,7 +64,7 @@ array[2] = "milk"
 array.removeAll()
 ```
 
-The output of the code is as follows:
+This will print:
 
     ArrayChangeEvent(insertedIndeces: [3], deletedIndeces: [], updatedIndeces: [])
     ArrayChangeEvent(insertedIndeces: [], deletedIndeces: [], updatedIndeces: [2])

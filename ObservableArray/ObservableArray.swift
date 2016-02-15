@@ -1,6 +1,6 @@
 //
 //  ObservableArray.swift
-//  TypetalkApp
+//  ObservableArray
 //
 //  Created by Safx Developer on 2015/02/19.
 //  Copyright (c) 2016 Safx Developers. All rights reserved.
