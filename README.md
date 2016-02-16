@@ -12,7 +12,7 @@ ObservableArray is an array that can emit messages of elements and diffs on it's
 
 ## Usage
 
-`ObservableArray` has two `Observable`s as follows:
+`ObservableArray` has two `Observable`s:
 
 ```swift
 func rx_elements() -> Observable<[Element]>
@@ -45,7 +45,7 @@ model.rx_elements()
     .observeOn(MainScheduler.instance)
     .bindTo(tableView.rx_itemsWithCellIdentifier("MySampleCell")) { (row, element, cell) in
         guard let c = cell as? MySampleCell else { return }
-        c.model = self.viewModel.model.topics[row]
+        c.model = self.model[row]
         return
     }
     .addDisposableTo(disposeBag)
