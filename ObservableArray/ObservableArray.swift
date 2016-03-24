@@ -190,9 +190,7 @@ extension ObservableArray: CollectionType {
             }
         }
     }
-}
 
-extension ObservableArray: MutableSliceable {
     public subscript(bounds: Range<Int>) -> ArraySlice<Element> {
         get {
             return elements[bounds]
