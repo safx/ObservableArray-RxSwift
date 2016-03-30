@@ -8,7 +8,7 @@
 
 # ObservableArray-RxSwift
 
-ObservableArray is an array that can emit messages of elements and diffs on it's changing.
+`ObservableArray` is an array that can emit messages of elements and diffs when it is mutated.
 
 ## Usage
 
@@ -21,7 +21,7 @@ func rx_events() -> Observable<ArrayChangeEvent>
 
 ### `rx_elements`
 
-`rx_elements()` emits own elements on its changing.
+`rx_elements()` emits own elements when mutated.
 
 ```swift
 var array: ObservableArray<String> = ["foo", "bar", "buzz"]
@@ -38,7 +38,7 @@ This will print:
     ["foo", "bar", "milk", "coffee"]
     []
 
-`rx_elements` can be worked with `rx_itemsWithCellIdentifier`:
+`rx_elements` can work with `rx_itemsWithCellIdentifier`:
 
 ```swift
 model.rx_elements()
@@ -53,7 +53,7 @@ model.rx_elements()
 
 ### `rx_events`
 
-`rx_events()` emits `ArrayChangeEvent` that contains indeces of diff on its changing.
+`rx_events()` emits `ArrayChangeEvent` that contains indices of diffs when mutated.
 
 ```swift
 var array: ObservableArray<String> = ["foo", "bar", "buzz"]
@@ -66,36 +66,36 @@ array.removeAll()
 
 This will print:
 
-    ArrayChangeEvent(insertedIndeces: [3], deletedIndeces: [], updatedIndeces: [])
-    ArrayChangeEvent(insertedIndeces: [], deletedIndeces: [], updatedIndeces: [2])
-    ArrayChangeEvent(insertedIndeces: [], deletedIndeces: [0, 1, 2, 3], updatedIndeces: [])
+    ArrayChangeEvent(insertedIndices: [3], deletedIndices: [], updatedIndices: [])
+    ArrayChangeEvent(insertedIndices: [], deletedIndices: [], updatedIndices: [2])
+    ArrayChangeEvent(insertedIndices: [], deletedIndices: [0, 1, 2, 3], updatedIndices: [])
 
-`ArrayChangeEvent` is defined as follows:
+`ArrayChangeEvent` is defined as:
 
 ```swift
 struct ArrayChangeEvent {
-    let insertedIndeces: [Int]
-    let deletedIndeces: [Int]
-    let updatedIndeces: [Int]
+    let insertedIndices: [Int]
+    let deletedIndices: [Int]
+    let updatedIndices: [Int]
 }
 ```
 
-These indeces can be used with methods of table view such like `insertRowsAtIndexPaths`.
-The following code will enable cell animations on its changing.
+These indices can be used with table view methods, such like `insertRowsAtIndexPaths(_:withRowAnimation:)`.
+For example, the following code will enable cell animations when the source array is mutated.
 
 ```swift
 extension UITableView {
     public func rx_autoUpdater(source: Observable<ArrayChangeEvent>) -> Disposable {
         return source
             .scan((0, nil)) { (a: (Int, ArrayChangeEvent!), ev) in
-                return (a.0 + ev.insertedIndeces.count - ev.deletedIndeces.count, ev)
+                return (a.0 + ev.insertedIndices.count - ev.deletedIndices.count, ev)
             }
             .observeOn(MainScheduler.instance)
             .subscribeNext { sourceCount, event in
                 guard let event = event else { return }
 
                 let tableCount = self.numberOfRowsInSection(0)
-                guard tableCount + event.insertedIndeces.count - event.deletedIndeces.count == sourceCount else {
+                guard tableCount + event.insertedIndices.count - event.deletedIndices.count == sourceCount else {
                     self.reloadData()
                     return
                 }
@@ -105,16 +105,16 @@ extension UITableView {
                 }
 
                 self.beginUpdates()
-                self.insertRowsAtIndexPaths(toIndexSet(event.insertedIndeces), withRowAnimation: .Automatic)
-                self.deleteRowsAtIndexPaths(toIndexSet(event.deletedIndeces), withRowAnimation: .Automatic)
-                self.reloadRowsAtIndexPaths(toIndexSet(event.updatedIndeces), withRowAnimation: .Automatic)
+                self.insertRowsAtIndexPaths(toIndexSet(event.insertedIndices), withRowAnimation: .Automatic)
+                self.deleteRowsAtIndexPaths(toIndexSet(event.deletedIndices), withRowAnimation: .Automatic)
+                self.reloadRowsAtIndexPaths(toIndexSet(event.updatedIndices), withRowAnimation: .Automatic)
                 self.endUpdates()
             }
     }
 }
 ```
 
-You can use `rx_autoUpdater` with `bindTo` in your view contollers:
+You can use `rx_autoUpdater(_:)` with `bindTo(_:)` in your view contollers:
 
 ```swift
 model.rx_events()
@@ -123,12 +123,11 @@ model.rx_events()
     .addDisposableTo(disposeBag)
 ```
 
-Unfortunately, `rx_autoUpdater` doesn't work with `rx_elements()` binding to `rx_itemsWithCellIdentifier`, because it uses `reloadData()` internally.
+Unfortunately, `rx_autoUpdater` doesn't work with `rx_elements()` binding to `rx_itemsWithCellIdentifier(_:source:configureCell:cellType:)`, because it uses `reloadData()` internally.
 
 ## Supported Methods
 
-ObservableArray implements the following methods and properties, which just work as the equivallent of an array's one.
-You can use other methods defined in protocol extensions such as `sort`, `reverse` and `enumerate`.
+`ObservableArray` implements the following methods and properties, which work the same way as `Array`'s equivalent methods. You can also use additional `Array` methods defined in protocol extensions, such as `sort`, `reverse` and `enumerate`.
 
 ```swift
 init()
@@ -165,6 +164,10 @@ subscript(bounds: Range<Int>) -> ArraySlice<Element>
 
     pod 'ObservableArray-RxSwift'
 
+**Important**: Use the following `import` statement to import `ObservableArray-RxSwift`:
+
+`import ObservableArray_RxSwift`
+
 ### Carthage
 
     github "safx/ObservableArray-RxSwift"
@@ -172,7 +175,6 @@ subscript(bounds: Range<Int>) -> ArraySlice<Element>
 ### Manual Install
 
 Just copy `ObservableArray.swift` into your project.
-
 
 ## License
 

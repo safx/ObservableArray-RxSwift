@@ -10,14 +10,12 @@
 		8D8C92EE1C342014006B75DF /* ObservableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D8C92ED1C342014006B75DF /* ObservableArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D8C92F51C342015006B75DF /* ObservableArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C92EB1C342014006B75DF /* ObservableArray.framework */; };
 		8D8C92FA1C342015006B75DF /* ObservableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C92F91C342015006B75DF /* ObservableArrayTests.swift */; };
-		8D8C93071C34233F006B75DF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C93041C34233F006B75DF /* RxSwift.framework */; };
 		8D8C93091C34235A006B75DF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C93081C34235A006B75DF /* RxSwift.framework */; };
 		8D8C930D1C3423E1006B75DF /* ObservableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C930C1C3423E1006B75DF /* ObservableArray.swift */; };
 		8D8C930E1C3423E1006B75DF /* ObservableArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C930C1C3423E1006B75DF /* ObservableArray.swift */; };
 		8D8C931A1C3426EE006B75DF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C93081C34235A006B75DF /* RxSwift.framework */; };
 		8D8C93241C3428DF006B75DF /* ObservableArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C92CC1C341EE6006B75DF /* ObservableArray.framework */; };
 		8D8C932A1C342907006B75DF /* ObservableArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C92F91C342015006B75DF /* ObservableArrayTests.swift */; };
-		8D8C932B1C34292A006B75DF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C93041C34233F006B75DF /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,11 +41,10 @@
 		8D8C92ED1C342014006B75DF /* ObservableArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObservableArray.h; sourceTree = "<group>"; };
 		8D8C92EF1C342014006B75DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8C92F41C342014006B75DF /* ObservableArray-iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObservableArray-iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D8C92F91C342015006B75DF /* ObservableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableArrayTests.swift; sourceTree = "<group>"; };
+		8D8C92F91C342015006B75DF /* ObservableArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ObservableArrayTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8D8C92FB1C342015006B75DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D8C93041C34233F006B75DF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		8D8C93081C34235A006B75DF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		8D8C930C1C3423E1006B75DF /* ObservableArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableArray.swift; sourceTree = "<group>"; };
+		8D8C930C1C3423E1006B75DF /* ObservableArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ObservableArray.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8D8C931F1C3428DF006B75DF /* ObservableArray-Mac-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObservableArray-Mac-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -56,7 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D8C93071C34233F006B75DF /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +78,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D8C93241C3428DF006B75DF /* ObservableArray.framework in Frameworks */,
-				8D8C932B1C34292A006B75DF /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +127,6 @@
 		8D8C930B1C3423C5006B75DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8D8C93041C34233F006B75DF /* RxSwift.framework */,
 				8D8C93081C34235A006B75DF /* RxSwift.framework */,
 			);
 			name = Frameworks;
