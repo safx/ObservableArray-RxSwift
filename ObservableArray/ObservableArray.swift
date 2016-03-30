@@ -62,7 +62,7 @@ extension ObservableArray {
     }
 
     private func arrayDidChange(event: EventType) {
-        elementsSubject?.oNext(elements)
+        elementsSubject?.onNext(elements)
         eventSubject?.onNext(event)
     }
 }
