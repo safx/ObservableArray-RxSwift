@@ -26,7 +26,7 @@ public struct ObservableArray<Element>: ArrayLiteralConvertible {
     public typealias EventType = ArrayChangeEvent
 
     internal var eventSubject: PublishSubject<EventType>!
-    internal var elementsSubject: PublishSubject<[Element]>!
+    internal var elementsSubject: BehaviorSubject<[Element]>!
     internal var elements: [Element]
 
     public init() {
@@ -49,7 +49,7 @@ public struct ObservableArray<Element>: ArrayLiteralConvertible {
 extension ObservableArray {
     public mutating func rx_elements() -> Observable<[Element]> {
         if elementsSubject == nil {
-            self.elementsSubject = PublishSubject<[Element]>()
+            self.elementsSubject = BehaviorSubject<[Element]>(value: self.elements)
         }
         return elementsSubject
     }
