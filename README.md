@@ -34,9 +34,12 @@ array.removeAll()
 
 This will print:
 
+    ["foo", "bar", "buzz"]
     ["foo", "bar", "buzz", "coffee"]
     ["foo", "bar", "milk", "coffee"]
     []
+
+Please note that `rx_elements()` emits the current items first when it has subscribed because it is implemented by using `BehaviorSubject`.
 
 `rx_elements` can work with `rx_itemsWithCellIdentifier`:
 
