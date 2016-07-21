@@ -22,23 +22,29 @@ public struct ArrayChangeEvent {
     }
 }
 
-public struct ObservableArray<Element>: ArrayLiteralConvertible {
-    public typealias EventType = ArrayChangeEvent
+public protocol ObservableArrayType {
+    associatedtype Element
 
-    internal var eventSubject: PublishSubject<EventType>!
-    internal var elementsSubject: BehaviorSubject<[Element]>!
-    internal var elements: [Element]
+    var eventSubject: PublishSubject<ArrayChangeEvent>! { set get }
+    var elementsSubject: BehaviorSubject<[Element]>! { set get }
+    var elements: [Element] { set get }
+}
+
+public struct ObservableArray<Element>: ObservableArrayType, ArrayLiteralConvertible {
+    public var eventSubject: PublishSubject<ArrayChangeEvent>!
+    public var elementsSubject: BehaviorSubject<[Element]>!
+    public var elements: [Element]
 
     public init() {
-        self.elements = []
+        elements = []
     }
 
-    public init(count:Int, repeatedValue: Element) {
-        self.elements = Array(count: count, repeatedValue: repeatedValue)
+    public init(count: Int, repeatedValue: Element) {
+        elements = Array(count: count, repeatedValue: repeatedValue)
     }
 
     public init<S : SequenceType where S.Generator.Element == Element>(_ s: S) {
-        self.elements = Array(s)
+        elements = Array(s)
     }
 
     public init(arrayLiteral elements: Element...) {
@@ -46,28 +52,50 @@ public struct ObservableArray<Element>: ArrayLiteralConvertible {
     }
 }
 
-extension ObservableArray {
+public class ObservableArrayClass<Element>: ObservableArrayType, ArrayLiteralConvertible {
+    public var eventSubject: PublishSubject<ArrayChangeEvent>!
+    public var elementsSubject: BehaviorSubject<[Element]>!
+    public var elements: [Element]
+
+    public init() {
+        elements = []
+    }
+
+    public init(count:Int, repeatedValue: Element) {
+        elements = Array(count: count, repeatedValue: repeatedValue)
+    }
+
+    public init<S : SequenceType where S.Generator.Element == Element>(_ s: S) {
+        elements = Array(s)
+    }
+
+    public required init(arrayLiteral elements: Element...) {
+        self.elements = elements
+    }
+}
+
+extension ObservableArrayType {
     public mutating func rx_elements() -> Observable<[Element]> {
         if elementsSubject == nil {
-            self.elementsSubject = BehaviorSubject<[Element]>(value: self.elements)
+            elementsSubject = BehaviorSubject<[Element]>(value: self.elements)
         }
         return elementsSubject
     }
 
-    public mutating func rx_events() -> Observable<EventType> {
+    public mutating func rx_events() -> Observable<ArrayChangeEvent> {
         if eventSubject == nil {
-            self.eventSubject = PublishSubject<EventType>()
+            eventSubject = PublishSubject<ArrayChangeEvent>()
         }
         return eventSubject
     }
 
-    private func arrayDidChange(event: EventType) {
+    private func arrayDidChange(event: ArrayChangeEvent) {
         elementsSubject?.onNext(elements)
         eventSubject?.onNext(event)
     }
 }
 
-extension ObservableArray: Indexable {
+extension ObservableArrayType {
     public var startIndex: Int {
         return elements.startIndex
     }
@@ -77,7 +105,8 @@ extension ObservableArray: Indexable {
     }
 }
 
-extension ObservableArray: RangeReplaceableCollectionType {
+extension ObservableArrayType {
+
     public var capacity: Int {
         return elements.capacity
     }
@@ -164,19 +193,19 @@ extension ObservableArray: RangeReplaceableCollectionType {
     }
 }
 
-extension ObservableArray: CustomDebugStringConvertible {
+extension ObservableArrayType {
     public var description: String {
         return elements.description
     }
 }
 
-extension ObservableArray: CustomStringConvertible {
+extension ObservableArrayType {
     public var debugDescription: String {
         return elements.debugDescription
     }
 }
 
-extension ObservableArray: CollectionType {
+extension ObservableArrayType {
     public subscript(index: Int) -> Element {
         get {
             return elements[index]
