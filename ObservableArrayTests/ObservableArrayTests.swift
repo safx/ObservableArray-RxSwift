@@ -18,12 +18,12 @@ class ObservableArrayTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testInit() {
         XCTAssertEqual([], ObservableArray<Int>().elements)
     }
@@ -711,7 +711,7 @@ class ObservableArrayTests: XCTestCase {
         a[1...4] = ["lion", "penguin"]
         XCTAssertEqual(["coffee", "lion", "penguin", "buzz"], a.elements)
     }
-    
+
     func testSubscriptRangeRxElements() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
         var observed = [[String]]()
@@ -724,9 +724,9 @@ class ObservableArrayTests: XCTestCase {
             }
         }
         .addDisposableTo(disposeBag)
-        
+
         a[0...1] = ["milk", "coffee", "tea"]
-        
+
         waitForExpectationsWithTimeout(1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
@@ -735,7 +735,7 @@ class ObservableArrayTests: XCTestCase {
         XCTAssertEqual(["foo", "bar", "buzz"], observed[0])
         XCTAssertEqual(["milk", "coffee", "tea", "buzz"], observed[1])
     }
-    
+
     func testSubscriptRangeRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
 
@@ -747,10 +747,53 @@ class ObservableArrayTests: XCTestCase {
             exp.fulfill()
         }
         .addDisposableTo(disposeBag)
-        
+
         a[1...2] = ["milk", "coffee", "tea"]
-        
+
         waitForExpectationsWithTimeout(1) { (error) in
+            XCTAssertNil(error, "\(error)")
+        }
+    }
+
+    func testThreadSafety() {
+        var a: ObservableSafeArray<String> = ["foo"]
+
+        let exp = expectationWithDescription("")
+        a.rx_events().subscribeNext { _ in }
+            .addDisposableTo(disposeBag)
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            for i in 0 ..< 1024 * 1024 {
+                a.append("\(i)")
+            }
+        }
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            for i in 0 ..< 1024 * 1024 {
+                a.append("\(i)")
+            }
+        }
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+            for _ in 0 ..< 1024 * 1024 where a.isEmpty {
+                if a.isEmpty == false  {
+                    a.removeFirst()
+                }
+            }
+        }
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            for _ in 0 ..< 1024 * 1024 where a.count > 1 {
+                if a.isEmpty == false  {
+                    a.removeFirst(2)
+                }
+            }
+        }
+
+        sleep(9)
+        exp.fulfill()
+
+        waitForExpectationsWithTimeout(10) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
