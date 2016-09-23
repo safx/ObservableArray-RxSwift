@@ -18,19 +18,19 @@ class ObservableArrayTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testInit() {
         XCTAssertEqual([], ObservableArray<Int>().elements)
     }
 
     func testInitSeqence() {
-        XCTAssertEqual([], ObservableArray([Int]().generate()).elements)
-        XCTAssertEqual([5,9,38], ObservableArray([5,9,38].generate()).elements)
+        XCTAssertEqual([], ObservableArray([Int]().makeIterator()).elements)
+        XCTAssertEqual([5,9,38], ObservableArray([5,9,38].makeIterator()).elements)
     }
 
     func testInitCountRepeatedValue() {
@@ -109,18 +109,18 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar"]
         var observed = [[String]]()
 
-        let exp = expectationWithDescription("event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
-            observed.append(elements)
+        let exp = expectation(description: "event emitted")
+        a.rx_elements().subscribe { (ev) -> Void in
+            observed.append(ev.element ?? [])
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
         a.append("buzz")
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
 
@@ -132,18 +132,18 @@ class ObservableArrayTests: XCTestCase {
     func testAppendRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar"]
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([2], event.insertedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
         a.append("buzz")
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
@@ -151,13 +151,13 @@ class ObservableArrayTests: XCTestCase {
     func testAppendContentsOfSeqeunce() {
         var a: ObservableArray<String> = []
 
-        a.appendContentsOf(["foo", "bar"].generate())
+        a.append(contentsOf: ["foo", "bar"].makeIterator())
         XCTAssertEqual(["foo", "bar"], a.elements)
 
-        a.appendContentsOf([].generate())
+        a.append(contentsOf: [].makeIterator())
         XCTAssertEqual(["foo", "bar"], a.elements)
 
-        a.appendContentsOf(["bazz", "tea", "coffee"].generate())
+        a.append(contentsOf: ["bazz", "tea", "coffee"].makeIterator())
         XCTAssertEqual(["foo", "bar", "bazz", "tea", "coffee"], a.elements)
     }
 
@@ -165,18 +165,18 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar"]
         var observed = [[String]]()
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_elements().subscribeNext { (elements) -> Void in
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.appendContentsOf(["bazz", "sugar"].generate())
+        a.append(contentsOf: ["bazz", "sugar"].makeIterator())
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
 
@@ -188,18 +188,18 @@ class ObservableArrayTests: XCTestCase {
     func testAppendContentsOfSeqeunceRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar"]
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([2, 3, 4], event.insertedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.appendContentsOf(["buzz", "sugar", "tea"].generate())
+        a.append(contentsOf: ["buzz", "sugar", "tea"].makeIterator())
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
@@ -221,18 +221,18 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar"]
         var observed = [[String]]()
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_elements().subscribeNext { (elements) -> Void in
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
         a.appendContentsOf(["bazz", "sugar"])
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
 
@@ -244,18 +244,18 @@ class ObservableArrayTests: XCTestCase {
     func testAppendContentsOfCollectionRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar"]
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([2, 3, 4], event.insertedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
         a.appendContentsOf(["buzz", "sugar", "tea"])
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
@@ -275,18 +275,18 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea"]
         var observed = [[String]]()
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_elements().subscribeNext { (elements) -> Void in
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.removeLast()
+        _ = a.removeLast()
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
         XCTAssertEqual(2, observed.count)
@@ -297,18 +297,18 @@ class ObservableArrayTests: XCTestCase {
     func testRemoveLastRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea"]
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([3], event.deletedIndices)
             XCTAssertTrue(event.insertedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.removeLast()
+        _ = a.removeLast()
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
@@ -317,10 +317,10 @@ class ObservableArrayTests: XCTestCase {
     func testInsert() {
         var a: ObservableArray<String> = ["foo", "bar"]
 
-        a.insert("buzz", atIndex: 1)
+        a.insert("buzz", at: 1)
         XCTAssertEqual(["foo", "buzz", "bar"], a.elements)
 
-        a.insert("coffee", atIndex: 0)
+        a.insert("coffee", at: 0)
         XCTAssertEqual(["coffee", "foo", "buzz", "bar"], a.elements)
     }
 
@@ -328,18 +328,18 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
         var observed = [[String]]()
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_elements().subscribeNext { (elements) -> Void in
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.insert("milk", atIndex: 3)
+        a.insert("milk", at: 3)
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
 
@@ -351,18 +351,18 @@ class ObservableArrayTests: XCTestCase {
     func testInsertRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([2], event.insertedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.insert("milk", atIndex: 2)
+        a.insert("milk", at: 2)
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
@@ -371,10 +371,10 @@ class ObservableArrayTests: XCTestCase {
     func testRemoveAtIndex() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea", "coffee"]
 
-        a.removeAtIndex(0)
+        _ = a.remove(at: 0)
         XCTAssertEqual(["bar", "buzz", "tea", "coffee"], a.elements)
 
-        a.removeAtIndex(2)
+        _ = a.remove(at: 2)
         XCTAssertEqual(["bar", "buzz", "coffee"], a.elements)
     }
 
@@ -382,18 +382,18 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea", "coffee"]
         var observed = [[String]]()
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_elements().subscribeNext { (elements) -> Void in
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.removeAtIndex(3)
+        _ = a.remove(at: 3)
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
 
@@ -405,18 +405,18 @@ class ObservableArrayTests: XCTestCase {
     func testRemoveAtIndexRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea", "coffee"]
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([2], event.deletedIndices)
             XCTAssertTrue(event.insertedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.removeAtIndex(2)
+        _ = a.remove(at: 2)
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
@@ -436,18 +436,18 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea", "coffee"]
         var observed = [[String]]()
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_elements().subscribeNext { (elements) -> Void in
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
         a.removeAll()
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
 
@@ -457,18 +457,18 @@ class ObservableArrayTests: XCTestCase {
     func testRemoveAllRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea", "coffee"]
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([0,1,2,3,4], event.deletedIndices)
             XCTAssertTrue(event.insertedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
         a.removeAll()
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
@@ -491,18 +491,18 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
         var observed = [[String]]()
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_elements().subscribeNext { (elements) -> Void in
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
         a.insertContentsOf(["milk", "coffee", "tea"], atIndex: 2)
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
 
@@ -512,18 +512,18 @@ class ObservableArrayTests: XCTestCase {
     func testInsertContentsOfRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([2,3,4], event.insertedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
         a.insertContentsOf(["milk", "coffee", "tea"], atIndex: 2)
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
@@ -533,10 +533,10 @@ class ObservableArrayTests: XCTestCase {
     func testReplaceRange() {
         var a: ObservableArray<String> = ["foo", "bar"]
 
-        a.replaceRange(0...1, with: ["buzz", "tea", "milk", "pot", "sugar"])
+        a.replaceSubrange(0...1, with: ["buzz", "tea", "milk", "pot", "sugar"])
         XCTAssertEqual(["buzz", "tea", "milk", "pot", "sugar"], a.elements)
 
-        a.replaceRange(2...3, with: ["lion", "penguin"])
+        a.replaceSubrange(2...3, with: ["lion", "penguin"])
         XCTAssertEqual(["buzz", "tea", "lion", "penguin", "sugar"], a.elements)
     }
 
@@ -544,18 +544,18 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
         var observed = [[String]]()
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_elements().subscribeNext { (elements) -> Void in
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.replaceRange(0...1, with: ["milk", "coffee", "tea"])
+        a.replaceSubrange(0...1, with: ["milk", "coffee", "tea"])
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
 
@@ -567,18 +567,18 @@ class ObservableArrayTests: XCTestCase {
     func testReplaceRangeRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([1,2,3], event.insertedIndices)
             XCTAssertEqual([1,2], event.deletedIndices)
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.replaceRange(1...2, with: ["milk", "coffee", "tea"])
+        a.replaceSubrange(1...2, with: ["milk", "coffee", "tea"])
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
@@ -601,18 +601,18 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea"]
         var observed = [[String]]()
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_elements().subscribeNext { (elements) -> Void in
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.popLast()
+        _ = a.popLast()
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
 
@@ -624,18 +624,18 @@ class ObservableArrayTests: XCTestCase {
     func testPopLastRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea"]
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([3], event.deletedIndices)
             XCTAssertTrue(event.insertedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
-        a.popLast()
+        _ = a.popLast()
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
@@ -659,18 +659,18 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea"]
         var observed = [[String]]()
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_elements().subscribeNext { (elements) -> Void in
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
         a[1] = "lion"
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
 
@@ -682,18 +682,18 @@ class ObservableArrayTests: XCTestCase {
     func testSubscriptIndexRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea"]
 
-        let exp = expectationWithDescription("event emitted")
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([1], event.updatedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.insertedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
 
         a[1] = "lion"
 
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
@@ -711,26 +711,26 @@ class ObservableArrayTests: XCTestCase {
         a[1...4] = ["lion", "penguin"]
         XCTAssertEqual(["coffee", "lion", "penguin", "buzz"], a.elements)
     }
-    
+
     func testSubscriptRangeRxElements() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
         var observed = [[String]]()
-
-        let exp = expectationWithDescription("event emitted")
+        
+        let exp = expectation(description: "event emitted")
         a.rx_elements().subscribeNext { (elements) -> Void in
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
             }
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
         
         a[0...1] = ["milk", "coffee", "tea"]
         
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
-
+        
         XCTAssertEqual(2, observed.count)
         XCTAssertEqual(["foo", "bar", "buzz"], observed[0])
         XCTAssertEqual(["milk", "coffee", "tea", "buzz"], observed[1])
@@ -738,19 +738,19 @@ class ObservableArrayTests: XCTestCase {
     
     func testSubscriptRangeRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
-
-        let exp = expectationWithDescription("event emitted")
+        
+        let exp = expectation(description: "event emitted")
         a.rx_events().subscribeNext { (event) -> Void in
             XCTAssertEqual([1,2,3], event.insertedIndices)
             XCTAssertEqual([1,2], event.deletedIndices)
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
-        }
-        .addDisposableTo(disposeBag)
+            }
+            .addDisposableTo(disposeBag)
         
         a[1...2] = ["milk", "coffee", "tea"]
         
-        waitForExpectationsWithTimeout(1) { (error) in
+        waitForExpectations(timeout: 1) { (error) in
             XCTAssertNil(error, "\(error)")
         }
     }
