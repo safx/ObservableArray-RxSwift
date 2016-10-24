@@ -25,7 +25,7 @@ func rx_events() -> Observable<ArrayChangeEvent>
 
 ```swift
 var array: ObservableArray<String> = ["foo", "bar", "buzz"]
-array.rx_events().subscribeNext { print($0) }
+array.rx_elements().subscribeNext { print($0) }
 
 array.append("coffee")
 array[2] = "milk"
