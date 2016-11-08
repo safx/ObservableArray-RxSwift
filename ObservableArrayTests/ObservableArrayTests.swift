@@ -133,7 +133,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar"]
 
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([2], event.insertedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
@@ -166,7 +167,8 @@ class ObservableArrayTests: XCTestCase {
         var observed = [[String]]()
 
         let exp = expectation(description: "event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
+        a.rx_elements().subscribe { (eventObject) -> Void in
+            guard let elements = eventObject.element else { return XCTFail() }
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
@@ -189,7 +191,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar"]
 
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([2, 3, 4], event.insertedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
@@ -222,7 +225,8 @@ class ObservableArrayTests: XCTestCase {
         var observed = [[String]]()
 
         let exp = expectation(description: "event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
+        a.rx_elements().subscribe { (eventObject) -> Void in
+            guard let elements = eventObject.element else { return XCTFail() }
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
@@ -245,7 +249,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar"]
 
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([2, 3, 4], event.insertedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
@@ -276,7 +281,8 @@ class ObservableArrayTests: XCTestCase {
         var observed = [[String]]()
 
         let exp = expectation(description: "event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
+        a.rx_elements().subscribe { (eventObject) -> Void in
+            guard let elements = eventObject.element else { return XCTFail() }
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
@@ -298,7 +304,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea"]
 
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([3], event.deletedIndices)
             XCTAssertTrue(event.insertedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
@@ -329,7 +336,8 @@ class ObservableArrayTests: XCTestCase {
         var observed = [[String]]()
 
         let exp = expectation(description: "event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
+        a.rx_elements().subscribe { (eventObject) -> Void in
+            guard let elements = eventObject.element else { return XCTFail() }
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
@@ -352,7 +360,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
 
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([2], event.insertedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
@@ -383,7 +392,8 @@ class ObservableArrayTests: XCTestCase {
         var observed = [[String]]()
 
         let exp = expectation(description: "event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
+        a.rx_elements().subscribe { (eventObject) -> Void in
+            guard let elements = eventObject.element else { return XCTFail() }
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
@@ -406,7 +416,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea", "coffee"]
 
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([2], event.deletedIndices)
             XCTAssertTrue(event.insertedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
@@ -437,7 +448,8 @@ class ObservableArrayTests: XCTestCase {
         var observed = [[String]]()
 
         let exp = expectation(description: "event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
+        a.rx_elements().subscribe { (eventObject) -> Void in
+            guard let elements = eventObject.element else { return XCTFail() }
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
@@ -458,7 +470,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea", "coffee"]
 
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([0,1,2,3,4], event.deletedIndices)
             XCTAssertTrue(event.insertedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
@@ -492,7 +505,8 @@ class ObservableArrayTests: XCTestCase {
         var observed = [[String]]()
 
         let exp = expectation(description: "event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
+        a.rx_elements().subscribe { (eventObject) -> Void in
+            guard let elements = eventObject.element else { return XCTFail() }
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
@@ -513,7 +527,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
 
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([2,3,4], event.insertedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
@@ -545,7 +560,8 @@ class ObservableArrayTests: XCTestCase {
         var observed = [[String]]()
 
         let exp = expectation(description: "event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
+        a.rx_elements().subscribe { (eventObject) -> Void in
+            guard let elements = eventObject.element else { return XCTFail() }
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
@@ -568,7 +584,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
 
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([1,2,3], event.insertedIndices)
             XCTAssertEqual([1,2], event.deletedIndices)
             XCTAssertTrue(event.updatedIndices.isEmpty)
@@ -602,7 +619,8 @@ class ObservableArrayTests: XCTestCase {
         var observed = [[String]]()
 
         let exp = expectation(description: "event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
+        a.rx_elements().subscribe { (eventObject) -> Void in
+            guard let elements = eventObject.element else { return XCTFail() }
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
@@ -625,7 +643,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea"]
 
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([3], event.deletedIndices)
             XCTAssertTrue(event.insertedIndices.isEmpty)
             XCTAssertTrue(event.updatedIndices.isEmpty)
@@ -660,7 +679,8 @@ class ObservableArrayTests: XCTestCase {
         var observed = [[String]]()
 
         let exp = expectation(description: "event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
+        a.rx_elements().subscribe { (eventObject) -> Void in
+            guard let elements = eventObject.element else { return XCTFail() }
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
@@ -683,7 +703,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz", "tea"]
 
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([1], event.updatedIndices)
             XCTAssertTrue(event.deletedIndices.isEmpty)
             XCTAssertTrue(event.insertedIndices.isEmpty)
@@ -717,7 +738,8 @@ class ObservableArrayTests: XCTestCase {
         var observed = [[String]]()
         
         let exp = expectation(description: "event emitted")
-        a.rx_elements().subscribeNext { (elements) -> Void in
+        a.rx_elements().subscribe { (eventObject) -> Void in
+            guard let elements = eventObject.element else { return XCTFail() }
             observed.append(elements)
             if observed.count == 2 {
                 exp.fulfill()
@@ -740,7 +762,8 @@ class ObservableArrayTests: XCTestCase {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
         
         let exp = expectation(description: "event emitted")
-        a.rx_events().subscribeNext { (event) -> Void in
+        a.rx_events().subscribe { (eventObject) -> Void in
+            guard let event = eventObject.element else { return XCTFail() }
             XCTAssertEqual([1,2,3], event.insertedIndices)
             XCTAssertEqual([1,2], event.deletedIndices)
             XCTAssertTrue(event.updatedIndices.isEmpty)
