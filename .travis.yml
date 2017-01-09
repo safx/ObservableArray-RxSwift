@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8
+osx_image: xcode8.2
 
 before_script:
 - brew upgrade carthage
@@ -15,6 +15,7 @@ script:
 - set -o pipefail
 - xcodebuild -project ObservableArray-RxSwift.xcodeproj -scheme ObservableArray-iOS test -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 7" | xcpretty -c
 - xcodebuild -project ObservableArray-RxSwift.xcodeproj -scheme ObservableArray-Mac test -sdk macosx | xcpretty -c
+- xcodebuild -project ObservableArray-RxSwift.xcodeproj -scheme ObservableArray-tvOS test -sdk appletvsimulator -destination "platform=tvOS Simulator,name=Apple TV 1080p" | xcpretty -c
 - pod lib lint --quick
 
 after_success:
