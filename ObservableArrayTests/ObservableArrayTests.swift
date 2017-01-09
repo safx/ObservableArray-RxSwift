@@ -10,12 +10,8 @@ import XCTest
 import RxSwift
 
 
-#if TARGET_OS_IOS
-  @testable import ObservableArray
-#else
-  @testable import ObservableArraytvOS
-#endif
 
+@testable import ObservableArray
 class ObservableArrayTests: XCTestCase {
 
     let disposeBag = DisposeBag()

@@ -48,7 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		63AB70011E23D93900F20D88 /* ObservableArraytvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObservableArraytvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63AB70011E23D93900F20D88 /* ObservableArray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObservableArray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AB70091E23D93900F20D88 /* ObservableArray-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObservableArray-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AB701B1E23D9DF00F20D88 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/tvOS/RxSwift.framework; sourceTree = "<group>"; };
 		8D8C92CC1C341EE6006B75DF /* ObservableArray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObservableArray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +132,7 @@
 				8D8C92EB1C342014006B75DF /* ObservableArray.framework */,
 				8D8C92F41C342014006B75DF /* ObservableArray-iOS-Tests.xctest */,
 				8D8C931F1C3428DF006B75DF /* ObservableArray-Mac-Tests.xctest */,
-				63AB70011E23D93900F20D88 /* ObservableArraytvOS.framework */,
+				63AB70011E23D93900F20D88 /* ObservableArray.framework */,
 				63AB70091E23D93900F20D88 /* ObservableArray-tvOSTests.xctest */,
 			);
 			name = Products;
@@ -211,7 +211,7 @@
 			);
 			name = ObservableArraytvOS;
 			productName = "ObservableArray-tvOS";
-			productReference = 63AB70011E23D93900F20D88 /* ObservableArraytvOS.framework */;
+			productReference = 63AB70011E23D93900F20D88 /* ObservableArray.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		63AB70081E23D93900F20D88 /* ObservableArray-tvOSTests */ = {
@@ -578,14 +578,14 @@
 				INFOPLIST_FILE = "$(SRCROOT)/ObservableArray/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray.ObservableArraytvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArraytvOS";
+				PRODUCT_NAME = ObservableArray;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -608,14 +608,14 @@
 				INFOPLIST_FILE = "$(SRCROOT)/ObservableArray/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray.ObservableArraytvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArraytvOS";
+				PRODUCT_NAME = ObservableArray;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -937,6 +937,7 @@
 				63AB70131E23D93900F20D88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		63AB70171E23D93900F20D88 /* Build configuration list for PBXNativeTarget "ObservableArray-tvOSTests" */ = {
 			isa = XCConfigurationList;
@@ -945,6 +946,7 @@
 				63AB70151E23D93900F20D88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D8C92C61C341EE6006B75DF /* Build configuration list for PBXProject "ObservableArray-RxSwift" */ = {
 			isa = XCConfigurationList;
