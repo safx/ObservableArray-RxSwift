@@ -8,7 +8,13 @@
 
 import XCTest
 import RxSwift
-@testable import ObservableArray
+
+
+#if TARGET_OS_IOS
+  @testable import ObservableArray
+#else
+  @testable import ObservableArraytvOS
+#endif
 
 class ObservableArrayTests: XCTestCase {
 
