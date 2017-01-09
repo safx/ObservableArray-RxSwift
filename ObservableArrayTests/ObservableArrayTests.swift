@@ -9,8 +9,6 @@
 import XCTest
 import RxSwift
 
-
-
 @testable import ObservableArray
 class ObservableArrayTests: XCTestCase {
 
