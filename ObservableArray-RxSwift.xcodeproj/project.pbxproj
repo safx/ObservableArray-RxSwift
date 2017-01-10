@@ -49,7 +49,7 @@
 
 /* Begin PBXFileReference section */
 		63AB70011E23D93900F20D88 /* ObservableArray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObservableArray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		63AB70091E23D93900F20D88 /* ObservableArray-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObservableArray-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63AB70091E23D93900F20D88 /* ObservableArray-tvOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObservableArray-tvOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AB701B1E23D9DF00F20D88 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/tvOS/RxSwift.framework; sourceTree = "<group>"; };
 		8D8C92CC1C341EE6006B75DF /* ObservableArray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObservableArray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8C92EB1C342014006B75DF /* ObservableArray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObservableArray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +133,7 @@
 				8D8C92F41C342014006B75DF /* ObservableArray-iOS-Tests.xctest */,
 				8D8C931F1C3428DF006B75DF /* ObservableArray-Mac-Tests.xctest */,
 				63AB70011E23D93900F20D88 /* ObservableArray.framework */,
-				63AB70091E23D93900F20D88 /* ObservableArray-tvOSTests.xctest */,
+				63AB70091E23D93900F20D88 /* ObservableArray-tvOS-Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,9 +195,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		63AB70001E23D93900F20D88 /* ObservableArraytvOS */ = {
+		63AB70001E23D93900F20D88 /* ObservableArray-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63AB70161E23D93900F20D88 /* Build configuration list for PBXNativeTarget "ObservableArraytvOS" */;
+			buildConfigurationList = 63AB70161E23D93900F20D88 /* Build configuration list for PBXNativeTarget "ObservableArray-tvOS" */;
 			buildPhases = (
 				63AB6FFC1E23D93900F20D88 /* Sources */,
 				63AB6FFD1E23D93900F20D88 /* Frameworks */,
@@ -209,14 +209,14 @@
 			);
 			dependencies = (
 			);
-			name = ObservableArraytvOS;
+			name = "ObservableArray-tvOS";
 			productName = "ObservableArray-tvOS";
 			productReference = 63AB70011E23D93900F20D88 /* ObservableArray.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		63AB70081E23D93900F20D88 /* ObservableArray-tvOSTests */ = {
+		63AB70081E23D93900F20D88 /* ObservableArray-tvOS-Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63AB70171E23D93900F20D88 /* Build configuration list for PBXNativeTarget "ObservableArray-tvOSTests" */;
+			buildConfigurationList = 63AB70171E23D93900F20D88 /* Build configuration list for PBXNativeTarget "ObservableArray-tvOS-Tests" */;
 			buildPhases = (
 				63AB70051E23D93900F20D88 /* Sources */,
 				63AB70061E23D93900F20D88 /* Frameworks */,
@@ -228,9 +228,9 @@
 			dependencies = (
 				63AB700C1E23D93900F20D88 /* PBXTargetDependency */,
 			);
-			name = "ObservableArray-tvOSTests";
+			name = "ObservableArray-tvOS-Tests";
 			productName = "ObservableArray-tvOSTests";
-			productReference = 63AB70091E23D93900F20D88 /* ObservableArray-tvOSTests.xctest */;
+			productReference = 63AB70091E23D93900F20D88 /* ObservableArray-tvOS-Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		8D8C92CB1C341EE6006B75DF /* ObservableArray-Mac */ = {
@@ -360,10 +360,10 @@
 			targets = (
 				8D8C92CB1C341EE6006B75DF /* ObservableArray-Mac */,
 				8D8C92EA1C342014006B75DF /* ObservableArray-iOS */,
-				63AB70001E23D93900F20D88 /* ObservableArraytvOS */,
+				63AB70001E23D93900F20D88 /* ObservableArray-tvOS */,
 				8D8C931E1C3428DF006B75DF /* ObservableArray-Mac-Tests */,
 				8D8C92F31C342014006B75DF /* ObservableArray-iOS-Tests */,
-				63AB70081E23D93900F20D88 /* ObservableArray-tvOSTests */,
+				63AB70081E23D93900F20D88 /* ObservableArray-tvOS-Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -545,7 +545,7 @@
 /* Begin PBXTargetDependency section */
 		63AB700C1E23D93900F20D88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 63AB70001E23D93900F20D88 /* ObservableArraytvOS */;
+			target = 63AB70001E23D93900F20D88 /* ObservableArray-tvOS */;
 			targetProxy = 63AB700B1E23D93900F20D88 /* PBXContainerItemProxy */;
 		};
 		8D8C92F71C342015006B75DF /* PBXTargetDependency */ = {
@@ -569,6 +569,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -581,7 +582,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/ObservableArray/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArraytvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray";
 				PRODUCT_NAME = ObservableArray;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -600,6 +601,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -612,7 +614,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/ObservableArray/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArraytvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray";
 				PRODUCT_NAME = ObservableArray;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -777,7 +779,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray-RxSwift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray";
 				PRODUCT_NAME = ObservableArray;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -803,7 +805,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray-RxSwift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blogspot.safx-dev.ObservableArray";
 				PRODUCT_NAME = ObservableArray;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -940,7 +942,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		63AB70161E23D93900F20D88 /* Build configuration list for PBXNativeTarget "ObservableArraytvOS" */ = {
+		63AB70161E23D93900F20D88 /* Build configuration list for PBXNativeTarget "ObservableArray-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63AB70121E23D93900F20D88 /* Debug */,
@@ -949,7 +951,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63AB70171E23D93900F20D88 /* Build configuration list for PBXNativeTarget "ObservableArray-tvOSTests" */ = {
+		63AB70171E23D93900F20D88 /* Build configuration list for PBXNativeTarget "ObservableArray-tvOS-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63AB70141E23D93900F20D88 /* Debug */,

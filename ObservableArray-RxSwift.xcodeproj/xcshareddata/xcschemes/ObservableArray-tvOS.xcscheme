@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "63AB70001E23D93900F20D88"
                BuildableName = "ObservableArray.framework"
-               BlueprintName = "ObservableArraytvOS"
+               BlueprintName = "ObservableArray-tvOS"
                ReferencedContainer = "container:ObservableArray-RxSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,8 +34,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "63AB70081E23D93900F20D88"
-               BuildableName = "ObservableArray-tvOSTests.xctest"
-               BlueprintName = "ObservableArray-tvOSTests"
+               BuildableName = "ObservableArray-tvOS-Tests.xctest"
+               BlueprintName = "ObservableArray-tvOS-Tests"
                ReferencedContainer = "container:ObservableArray-RxSwift.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -45,7 +45,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63AB70001E23D93900F20D88"
             BuildableName = "ObservableArray.framework"
-            BlueprintName = "ObservableArraytvOS"
+            BlueprintName = "ObservableArray-tvOS"
             ReferencedContainer = "container:ObservableArray-RxSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,7 +67,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63AB70001E23D93900F20D88"
             BuildableName = "ObservableArray.framework"
-            BlueprintName = "ObservableArraytvOS"
+            BlueprintName = "ObservableArray-tvOS"
             ReferencedContainer = "container:ObservableArray-RxSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -85,7 +85,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "63AB70001E23D93900F20D88"
             BuildableName = "ObservableArray.framework"
-            BlueprintName = "ObservableArraytvOS"
+            BlueprintName = "ObservableArray-tvOS"
             ReferencedContainer = "container:ObservableArray-RxSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
