@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8.2
+osx_image: xcode8
 
 before_script:
 - brew upgrade
@@ -7,14 +7,13 @@ before_script:
 - xcrun simctl list
 - time xcodebuild -showBuildSettings
 - carthage bootstrap --no-use-binaries --use-submodules --platform ios,osx,tvos
-- SIMULATOR_ID=$(xcrun instruments -s | grep -o "iPhone 7 (10.2) \[.*\]" | grep -o "\[.*\]" | sed "s/^\[\(.*\)\]$/\1/")
-
+- SIMULATOR_ID=$(xcrun instruments -s | grep -o "iPhone 7 (10.0) \[.*\]" | grep -o "\[.*\]" | sed "s/^\[\(.*\)\]$/\1/")
+  
 script:
 - echo $SIMULATOR_ID
 - open -b com.apple.iphonesimulator --args -CurrentDeviceUDID $SIMULATOR_ID
 - set -o pipefail
-# - xcodebuild -project ObservableArray-RxSwift.xcodeproj -scheme ObservableArray-iOS test -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 7,OS=10.2" | xcpretty -c
-- xcodebuild -project ObservableArray-RxSwift.xcodeproj -scheme ObservableArray-iOS test -sdk iphonesimulator -destination "id=$SIMULATOR_ID" | xcpretty -c
+- xcodebuild -project ObservableArray-RxSwift.xcodeproj -scheme ObservableArray-iOS test -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 7" | xcpretty -c
 - xcodebuild -project ObservableArray-RxSwift.xcodeproj -scheme ObservableArray-Mac test -sdk macosx | xcpretty -c
 - xcodebuild -project ObservableArray-RxSwift.xcodeproj -scheme ObservableArray-tvOS test -sdk appletvsimulator -destination "platform=tvOS Simulator,name=Apple TV 1080p" | xcpretty -c
 - pod lib lint --quick
