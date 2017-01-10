@@ -2,7 +2,7 @@ language: objective-c
 osx_image: xcode8.2
 
 before_script:
-- brew upgrade carthage >> /dev/null
+- brew upgrade
 - carthage version
 - xcrun simctl list
 - time xcodebuild -showBuildSettings
