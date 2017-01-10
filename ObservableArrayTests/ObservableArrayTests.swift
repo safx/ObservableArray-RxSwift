@@ -8,8 +8,8 @@
 
 import XCTest
 import RxSwift
-@testable import ObservableArray
 
+@testable import ObservableArray
 class ObservableArrayTests: XCTestCase {
 
     let disposeBag = DisposeBag()
