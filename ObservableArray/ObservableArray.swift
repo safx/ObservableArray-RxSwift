@@ -117,7 +117,7 @@ extension ObservableArray: MutableCollection {
         arrayDidChange(ArrayChangeEvent(inserted: Array(end..<elements.count)))
     }
 
-    public mutating func removeLast() -> Element {
+    @discardableResult public mutating func removeLast() -> Element {
         let e = elements.removeLast()
         arrayDidChange(ArrayChangeEvent(deleted: [elements.count]))
         return e
@@ -128,7 +128,7 @@ extension ObservableArray: MutableCollection {
         arrayDidChange(ArrayChangeEvent(inserted: [i]))
     }
 
-    public mutating func remove(at index: Int) -> Element {
+    @discardableResult public mutating func remove(at index: Int) -> Element {
         let e = elements.remove(at: index)
         arrayDidChange(ArrayChangeEvent(deleted: [index]))
         return e
