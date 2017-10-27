@@ -116,12 +116,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.append("buzz")
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
 
         XCTAssertEqual(2, observed.count)
@@ -140,12 +140,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.append("buzz")
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 
@@ -174,12 +174,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.append(contentsOf: ["bazz", "sugar"].makeIterator())
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
 
         XCTAssertEqual(2, observed.count)
@@ -198,12 +198,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.append(contentsOf: ["buzz", "sugar", "tea"].makeIterator())
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 
@@ -232,12 +232,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.appendContentsOf(["bazz", "sugar"])
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
 
         XCTAssertEqual(2, observed.count)
@@ -256,12 +256,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.appendContentsOf(["buzz", "sugar", "tea"])
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 
@@ -288,12 +288,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         _ = a.removeLast()
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
         XCTAssertEqual(2, observed.count)
         XCTAssertEqual(["foo", "bar", "buzz", "tea"], observed[0])
@@ -311,12 +311,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         _ = a.removeLast()
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 
@@ -343,12 +343,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.insert("milk", at: 3)
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
 
         XCTAssertEqual(2, observed.count)
@@ -367,12 +367,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.insert("milk", at: 2)
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 
@@ -399,12 +399,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         _ = a.remove(at: 3)
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
 
         XCTAssertEqual(2, observed.count)
@@ -423,12 +423,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         _ = a.remove(at: 2)
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 
@@ -455,12 +455,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.removeAll()
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
 
         XCTAssertEqual([], observed[1])
@@ -477,12 +477,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.removeAll()
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 
@@ -512,12 +512,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.insertContentsOf(["milk", "coffee", "tea"], atIndex: 2)
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
 
         XCTAssertEqual(["foo", "bar", "milk", "coffee", "tea", "buzz"], observed[1])
@@ -534,12 +534,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.insertContentsOf(["milk", "coffee", "tea"], atIndex: 2)
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 
@@ -567,12 +567,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.replaceSubrange(0...1, with: ["milk", "coffee", "tea"])
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
 
         XCTAssertEqual(2, observed.count)
@@ -591,12 +591,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a.replaceSubrange(1...2, with: ["milk", "coffee", "tea"])
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 
@@ -626,12 +626,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         _ = a.popLast()
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
 
         XCTAssertEqual(2, observed.count)
@@ -650,12 +650,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         _ = a.popLast()
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 
@@ -686,12 +686,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a[1] = "lion"
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
 
         XCTAssertEqual(2, observed.count)
@@ -710,12 +710,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.insertedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         a[1] = "lion"
 
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 
@@ -745,12 +745,12 @@ class ObservableArrayTests: XCTestCase {
                 exp.fulfill()
             }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         a[0...1] = ["milk", "coffee", "tea"]
         
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
         
         XCTAssertEqual(2, observed.count)
@@ -760,7 +760,7 @@ class ObservableArrayTests: XCTestCase {
     
     func testSubscriptRangeRxEvent() {
         var a: ObservableArray<String> = ["foo", "bar", "buzz"]
-        
+
         let exp = expectation(description: "event emitted")
         a.rx_events().subscribe { (eventObject) -> Void in
             guard let event = eventObject.element else { return XCTFail() }
@@ -769,12 +769,12 @@ class ObservableArrayTests: XCTestCase {
             XCTAssertTrue(event.updatedIndices.isEmpty)
             exp.fulfill()
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         a[1...2] = ["milk", "coffee", "tea"]
         
         waitForExpectations(timeout: 1) { (error) in
-            XCTAssertNil(error, "\(error)")
+            XCTAssertNil(error, "\(String(describing: error))")
         }
     }
 }
