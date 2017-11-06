@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ObservableArray-RxSwift"
-  s.version      = "0.1.1"
+  s.version      = "0.2.0"
   s.summary      = "ObservableArray is an array that can emit messages of elements and diffs on it's changing."
   s.homepage     = "https://github.com/safx/ObservableArray-RxSwift"
   s.license      = { :type => "MIT", :file => "LICENSE" }
