@@ -16,9 +16,9 @@ public struct ArrayChangeEvent {
 
     fileprivate init(inserted: [Int] = [], deleted: [Int] = [], updated: [Int] = []) {
         assert(inserted.count + deleted.count + updated.count > 0)
-        self.insertedIndices = inserted
-        self.deletedIndices = deleted
-        self.updatedIndices = updated
+        insertedIndices = inserted
+        deletedIndices = deleted
+        updatedIndices = updated
     }
 }
 
@@ -30,15 +30,15 @@ public struct ObservableArray<Element>: ExpressibleByArrayLiteral {
     internal var elements: [Element]
 
     public init() {
-        self.elements = []
+        elements = []
     }
 
-    public init(count:Int, repeatedValue: Element) {
-        self.elements = Array(repeating: repeatedValue, count: count)
+    public init(count: Int, repeatedValue: Element) {
+        elements = Array(repeating: repeatedValue, count: count)
     }
 
     public init<S : Sequence>(_ s: S) where S.Iterator.Element == Element {
-        self.elements = Array(s)
+        elements = Array(s)
     }
 
     public init(arrayLiteral elements: Element...) {
@@ -49,14 +49,14 @@ public struct ObservableArray<Element>: ExpressibleByArrayLiteral {
 extension ObservableArray {
     public mutating func rx_elements() -> Observable<[Element]> {
         if elementsSubject == nil {
-            self.elementsSubject = BehaviorSubject<[Element]>(value: self.elements)
+            elementsSubject = BehaviorSubject<[Element]>(value: elements)
         }
         return elementsSubject
     }
 
     public mutating func rx_events() -> Observable<EventType> {
         if eventSubject == nil {
-            self.eventSubject = PublishSubject<EventType>()
+            eventSubject = PublishSubject<EventType>()
         }
         return eventSubject
     }
